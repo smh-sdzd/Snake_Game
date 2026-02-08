@@ -56,24 +56,10 @@ void Logic(){
     default:    break;
     }
 
-    if (x >= width || x < 0 || y >= height || y < 0)
+    if (x >= width || x =< 0 || y >= height || y =< 0)
         gameOver = true;
 
     for (int i = 0; i < nTail; i++)
         if (tailX[i] == x && tailY[i] == y)
             gameOver = true;
-
-    if (x == fruitX && y == fruitY) {
-        Beep(1600,35);
-        score += 10;
-
-        fruitX = rand() % width;
-        fruitY = rand() % height;
-        nTail++;
-
-        if (nTail >= 1000)
-            nTail = 999;
-
-        gameDelay = max(50.0, gameDelay - 10.0);
-    }
 }
